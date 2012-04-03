@@ -7,6 +7,7 @@
 //
 
 #import "JHViewController.h"
+#import "JHPopOverView.h"
 
 @implementation JHViewController
 
@@ -22,6 +23,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    JHPopOverView *jhPopOverView = [[JHPopOverView alloc]initWithFrame:CGRectMake(40, 40, 320, 460)];
+    [self.view addSubview:jhPopOverView];
 }
 
 - (void)viewDidUnload
@@ -29,6 +32,7 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
