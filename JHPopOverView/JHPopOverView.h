@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JHPopOverView : UIView
+@interface JHPopOverView : UIView{
+
+    UIBezierPath *mOuterPath;
+    UIBezierPath *mInnerPath;
+    
+    CGFloat mXPeak;
+    CGFloat mYPeak;
+    CGFloat mPeakWidth;
+    CGFloat mPeakHeight;
+    CGFloat mCornerRadius;
+    CGFloat mShadowRadius;
+    
+}
 
 @end

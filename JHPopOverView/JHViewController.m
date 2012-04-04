@@ -23,7 +23,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    JHPopOverView *jhPopOverView = [[JHPopOverView alloc]initWithFrame:CGRectMake(40, 40, 320, 460)];
+    JHPopOverView *jhPopOverView = [[JHPopOverView alloc]initWithFrame:CGRectMake(40, 40, 300, 400)];
     [self.view addSubview:jhPopOverView];
 }
 
