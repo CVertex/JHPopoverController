@@ -9,7 +9,18 @@
 #import "JHPopOverView.h"
 #import <QuartzCore/QuartzCore.h>
 
+@interface JHPopOverView ()
+
+@property (strong, nonatomic) UIBezierPath *outerPath;
+@property (strong, nonatomic) UIBezierPath *innerPath;
+
+@end
+
 @implementation JHPopOverView
+
+@synthesize outerPath = mOuterPath;
+@synthesize innerPath = mInnerPath;
+
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -90,18 +101,18 @@
     CGContextTranslateCTM(aRef, rect.origin.x, rect.origin.y);
     rect.origin = CGPointZero;
     // Create an oval shape to draw.
-    if (nil == mOuterPath) {
-        mOuterPath = [self bezierPathWithRect:rect xPeak:mXPeak yPeak:mYPeak peakWidth:mPeakWidth andPeakHeight:mPeakHeight];
+    if (nil == self.outerPath) {
+        self.outerPath = [self bezierPathWithRect:rect xPeak:mXPeak yPeak:mYPeak peakWidth:mPeakWidth andPeakHeight:mPeakHeight];
     }
     
-    
+
     // Set the render colors
     
-    [[UIColor colorWithRed:0.67 green:0.66 blue:0.66 alpha:1.0] setStroke];
-    [[UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0] setFill];
+    [[UIColor colorWithRed:0.67 green:0.66 blue:0.66 alpha:1.0] setStroke]; // gray
+    [[UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0] setFill];   // light grey inner fill
     
     // Adjust the drawing options as needed.
-    mOuterPath.lineWidth = 0.5;
+    self.outerPath.lineWidth = 0.5;
     
     // If you have content to draw after the shape,
     // save the current state before changing the transform
@@ -109,25 +120,25 @@
     CGContextSetShadowWithColor(aRef, CGSizeMake(0, 0), mShadowRadius, [UIColor colorWithWhite:0 alpha:0.2].CGColor);
     // Fill the path before stroking it so that the fill
     // color does not obscure the stroked line.
-    [mOuterPath fill];
-    [mOuterPath stroke];
+    [self.outerPath fill];
+    [self.outerPath stroke];
     
     
     CGContextRestoreGState(aRef);
     
     
-    [[UIColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:0.9] setStroke];
+    [[UIColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:0.9] setStroke]; // white highlight inner stroke
 
     rect = CGRectInset(self.bounds, 6.5, 6.5);
 
     CGContextTranslateCTM(aRef, rect.origin.x - 5, rect.origin.y - 5);
     rect.origin = CGPointZero;
-    if (nil == mInnerPath) {
-        mInnerPath = [self bezierPathWithRect:rect xPeak:mXPeak - 1.5 yPeak:mYPeak + 1 peakWidth:mPeakWidth - 2 andPeakHeight:mPeakHeight - 1];
+    if (nil == self.innerPath) {
+        self.innerPath = [self bezierPathWithRect:rect xPeak:mXPeak - 1.5 yPeak:mYPeak + 1 peakWidth:mPeakWidth - 2 andPeakHeight:mPeakHeight - 1];
     }
     
-    [mInnerPath fill];
-    [mInnerPath stroke];
+    [self.innerPath fill];
+    [self.innerPath stroke];
     
 }
 
