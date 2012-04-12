@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JHPopOverView : UIView{
+@interface JHPopoverView : UIView{
 
     UIBezierPath *mOuterPath;
     UIBezierPath *mInnerPath;
@@ -22,5 +22,5 @@
     
 }
 
-
+- (id)initWithFrame:(CGRect)frame andXPeak:(CGFloat)xPeak;
 @end

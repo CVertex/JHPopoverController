@@ -6,23 +6,23 @@
 //  Copyright (c) 2012 Jon Hocking. All rights reserved.
 //
 
-#import "JHPopOverView.h"
+#import "JHPopoverView.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface JHPopOverView ()
+@interface JHPopoverView ()
 
 @property (strong, nonatomic) UIBezierPath *outerPath;
 @property (strong, nonatomic) UIBezierPath *innerPath;
 
 @end
 
-@implementation JHPopOverView
+@implementation JHPopoverView
 
 @synthesize outerPath = mOuterPath;
 @synthesize innerPath = mInnerPath;
 
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame andXPeak:(CGFloat)xPeak
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -33,30 +33,23 @@
         mYPeak = 0;
         mPeakWidth = 34;
         mPeakHeight = 18;
-        mXPeak = 218;
+        mXPeak = xPeak;
         mCornerRadius = 6;
         mShadowRadius = 6;
         
         UIView *containerView = [[UIView alloc]initWithFrame:CGRectMake(mShadowRadius + 1, mYPeak + mPeakHeight + mShadowRadius + 1, frame.size.width - (2*mShadowRadius + 2), frame.size.height - mYPeak - mPeakHeight - mShadowRadius - mShadowRadius - 2)];
         containerView.layer.cornerRadius = mCornerRadius - 1;
         containerView.clipsToBounds = YES;
-//        containerView.backgroundColor = [UIColor redColor];
         
         [self addSubview:containerView];
         
-        
-        
         UIScrollView *scrollView = [[UIScrollView alloc]initWithFrame:containerView.bounds];
-//        scrollView.layer.cornerRadius = mCornerRadius - 1;
         
         scrollView.contentSize = CGSizeMake(containerView.frame.size.width, 2* containerView.frame.size.height);
         [containerView addSubview:scrollView];
         
-//        scrollView.backgroundColor = [UIColor greenColor];
-        
         UIView *content = [[UIView alloc]initWithFrame:CGRectMake(0, 0, scrollView.contentSize.width, scrollView.contentSize.height)];
         [scrollView addSubview:content];
-//        content.backgroundColor = [UIColor blueColor];
         
     }
     return self;

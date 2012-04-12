@@ -7,8 +7,9 @@
 //
 
 #import "JHViewController.h"
-#import "JHPopOverView.h"
-
+#import "JHPopoverView.h"
+#import "JHPopoverViewController.h"
+#import "ViewController.h"
 @implementation JHViewController
 
 - (void)didReceiveMemoryWarning
@@ -23,8 +24,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    JHPopOverView *jhPopOverView = [[JHPopOverView alloc]initWithFrame:CGRectMake(40, 40, 300, 400)];
-    [self.view addSubview:jhPopOverView];
+//    JHPopoverView *jhPopOverView = [[JHPopoverView alloc]initWithFrame:CGRectMake(40, 40, 300, 400)];
+//    [self.view addSubview:jhPopOverView];
 }
 
 - (void)viewDidUnload
@@ -54,6 +55,17 @@
 {
 	[super viewDidDisappear:animated];
 }
+
+
+- (IBAction)buttonPressed:(id)sender{
+    
+    ViewController *vc = [[ViewController alloc]initWithNibName:@"ViewController" bundle:nil];
+    
+    JHPopoverViewController *popOverViewController = [[JHPopoverViewController alloc]initWithViewController:vc andContentSize:vc.view.frame.size];
+    [popOverViewController presentPopoverFromRect:[(UIButton*)sender frame] inView:self.view animated:YES];
+}
+
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

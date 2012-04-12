@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9480D15B1537755800FDE553 /* JHPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9480D1581537755800FDE553 /* JHPopoverView.m */; };
+		9480D15C1537755800FDE553 /* JHPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9480D15A1537755800FDE553 /* JHPopoverViewController.m */; };
+		9480D16015377CBE00FDE553 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9480D15E15377CBE00FDE553 /* ViewController.m */; };
+		9480D16115377CBE00FDE553 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9480D15F15377CBE00FDE553 /* ViewController.xib */; };
 		94FD4737152BAC3C00A916AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94FD4736152BAC3C00A916AD /* UIKit.framework */; };
 		94FD4739152BAC3C00A916AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94FD4738152BAC3C00A916AD /* Foundation.framework */; };
 		94FD473B152BAC3C00A916AD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94FD473A152BAC3C00A916AD /* CoreGraphics.framework */; };
@@ -16,10 +20,16 @@
 		94FD474A152BAC3D00A916AD /* JHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FD4749152BAC3D00A916AD /* JHViewController.m */; };
 		94FD474D152BAC3D00A916AD /* JHViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94FD474B152BAC3D00A916AD /* JHViewController_iPhone.xib */; };
 		94FD4750152BAC3D00A916AD /* JHViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94FD474E152BAC3D00A916AD /* JHViewController_iPad.xib */; };
-		94FD4758152BACEE00A916AD /* JHPopOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FD4757152BACEE00A916AD /* JHPopOverView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9480D1571537755800FDE553 /* JHPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPopoverView.h; sourceTree = "<group>"; };
+		9480D1581537755800FDE553 /* JHPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPopoverView.m; sourceTree = "<group>"; };
+		9480D1591537755800FDE553 /* JHPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPopoverViewController.h; sourceTree = "<group>"; };
+		9480D15A1537755800FDE553 /* JHPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPopoverViewController.m; sourceTree = "<group>"; };
+		9480D15D15377CBE00FDE553 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		9480D15E15377CBE00FDE553 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		9480D15F15377CBE00FDE553 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		94FD4732152BAC3C00A916AD /* JHPopOverView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JHPopOverView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94FD4736152BAC3C00A916AD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		94FD4738152BAC3C00A916AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -34,8 +44,6 @@
 		94FD4749152BAC3D00A916AD /* JHViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHViewController.m; sourceTree = "<group>"; };
 		94FD474C152BAC3D00A916AD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/JHViewController_iPhone.xib; sourceTree = "<group>"; };
 		94FD474F152BAC3D00A916AD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/JHViewController_iPad.xib; sourceTree = "<group>"; };
-		94FD4756152BACEE00A916AD /* JHPopOverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPopOverView.h; sourceTree = "<group>"; };
-		94FD4757152BACEE00A916AD /* JHPopOverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPopOverView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +60,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9480D1561537755800FDE553 /* JHPopoverViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9480D1571537755800FDE553 /* JHPopoverView.h */,
+				9480D1581537755800FDE553 /* JHPopoverView.m */,
+				9480D1591537755800FDE553 /* JHPopoverViewController.h */,
+				9480D15A1537755800FDE553 /* JHPopoverViewController.m */,
+			);
+			path = JHPopoverViewController;
+			sourceTree = "<group>";
+		};
 		94FD4727152BAC3C00A916AD = {
 			isa = PBXGroup;
 			children = (
@@ -88,9 +107,11 @@
 				94FD4749152BAC3D00A916AD /* JHViewController.m */,
 				94FD474B152BAC3D00A916AD /* JHViewController_iPhone.xib */,
 				94FD474E152BAC3D00A916AD /* JHViewController_iPad.xib */,
+				9480D1561537755800FDE553 /* JHPopoverViewController */,
 				94FD473D152BAC3D00A916AD /* Supporting Files */,
-				94FD4756152BACEE00A916AD /* JHPopOverView.h */,
-				94FD4757152BACEE00A916AD /* JHPopOverView.m */,
+				9480D15D15377CBE00FDE553 /* ViewController.h */,
+				9480D15E15377CBE00FDE553 /* ViewController.m */,
+				9480D15F15377CBE00FDE553 /* ViewController.xib */,
 			);
 			path = JHPopOverView;
 			sourceTree = "<group>";
@@ -160,6 +181,7 @@
 				94FD4741152BAC3D00A916AD /* InfoPlist.strings in Resources */,
 				94FD474D152BAC3D00A916AD /* JHViewController_iPhone.xib in Resources */,
 				94FD4750152BAC3D00A916AD /* JHViewController_iPad.xib in Resources */,
+				9480D16115377CBE00FDE553 /* ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,7 +195,9 @@
 				94FD4743152BAC3D00A916AD /* main.m in Sources */,
 				94FD4747152BAC3D00A916AD /* JHAppDelegate.m in Sources */,
 				94FD474A152BAC3D00A916AD /* JHViewController.m in Sources */,
-				94FD4758152BACEE00A916AD /* JHPopOverView.m in Sources */,
+				9480D15B1537755800FDE553 /* JHPopoverView.m in Sources */,
+				9480D15C1537755800FDE553 /* JHPopoverViewController.m in Sources */,
+				9480D16015377CBE00FDE553 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +319,7 @@
 				94FD4755152BAC3D00A916AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
