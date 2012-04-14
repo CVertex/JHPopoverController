@@ -13,14 +13,14 @@
 
 @property (strong, nonatomic) UIBezierPath *outerPath;
 @property (strong, nonatomic) UIBezierPath *innerPath;
-
+@property (strong, nonatomic) UIScrollView *scrollView;
 @end
 
 @implementation JHPopoverView
 
 @synthesize outerPath = mOuterPath;
 @synthesize innerPath = mInnerPath;
-
+@synthesize scrollView = mScrollView;
 
 - (id)initWithFrame:(CGRect)frame andXPeak:(CGFloat)xPeak
 {
@@ -43,13 +43,12 @@
         
         [self addSubview:containerView];
         
-        UIScrollView *scrollView = [[UIScrollView alloc]initWithFrame:containerView.bounds];
+        self.scrollView = [[UIScrollView alloc]initWithFrame:containerView.bounds];
         
-        scrollView.contentSize = CGSizeMake(containerView.frame.size.width, 2* containerView.frame.size.height);
-        [containerView addSubview:scrollView];
+        self.scrollView.contentSize = CGSizeMake(containerView.frame.size.width, 2* containerView.frame.size.height);
+        [containerView addSubview:self.scrollView];
         
-        UIView *content = [[UIView alloc]initWithFrame:CGRectMake(0, 0, scrollView.contentSize.width, scrollView.contentSize.height)];
-        [scrollView addSubview:content];
+       
         
     }
     return self;
@@ -135,5 +134,9 @@
     
 }
 
+- (void)setContentView:(UIView*)contentView{
+    self.scrollView.contentSize = contentView.bounds.size;
+    [self.scrollView addSubview:contentView];
+}
 
 @end

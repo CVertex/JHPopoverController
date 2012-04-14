@@ -26,7 +26,6 @@
     if (self) {
         self.viewController = viewController;
         self.contentSize = size;
-        
     }
     
     return self;
@@ -36,19 +35,20 @@
     
     // do some boundary checking for sides here
     
-    CGRect convertedRect = [view convertRect:rect toView:view];
-//    UIWindow *window = [[[UIApplication sharedApplication] windows] objectAtIndex:0];
+    CGRect convertedRect = rect;    //[view convertRect:rect toView:view];
     
-    self.popoverView = [[JHPopoverView alloc]initWithFrame:CGRectMake(-5, 0, self.contentSize.width + 10, self.contentSize.height + 10) andXPeak:5 + self.contentSize.width/2];
+    self.popoverView = [[JHPopoverView alloc]initWithFrame:CGRectMake(-7, 0, self.contentSize.width + 14, self.contentSize.height + 14) andXPeak:7 + self.contentSize.width/2];
     
     CGRect popOverFrame = self.popoverView.frame;
     
-    popOverFrame.origin.y = convertedRect.origin.y + convertedRect.size.height;
+    popOverFrame.origin.y += convertedRect.origin.y + convertedRect.size.height;
     
-    popOverFrame.origin.x = (convertedRect.origin.x + convertedRect.size.height/2) - popOverFrame.size.width/2;
+    popOverFrame.origin.x += (convertedRect.origin.x + convertedRect.size.width/2) - popOverFrame.size.width/2;
     
     self.popoverView.frame = popOverFrame;
-//    [window addSubview:self.popoverView];
+    
+    [self.popoverView setContentView:self.viewController.view];
+    
     [view addSubview:self.popoverView];
 }
 

@@ -22,5 +22,6 @@
     
 }
 
+- (void)setContentView:(UIView*)contentView;
 - (id)initWithFrame:(CGRect)frame andXPeak:(CGFloat)xPeak;
 @end
