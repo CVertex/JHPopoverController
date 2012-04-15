@@ -37,8 +37,8 @@
         mCornerRadius = 6;
         mShadowRadius = 6;
         
-        UIView *containerView = [[UIView alloc]initWithFrame:CGRectMake(mShadowRadius + 1, mYPeak + mPeakHeight + mShadowRadius + 1, frame.size.width - (2*mShadowRadius + 2), frame.size.height - mYPeak - mPeakHeight - mShadowRadius - mShadowRadius - 2)];
-        containerView.layer.cornerRadius = mCornerRadius - 1;
+        UIView *containerView = [[UIView alloc]initWithFrame:CGRectMake(mShadowRadius + 1, mYPeak + mPeakHeight + mShadowRadius + 0.5, frame.size.width - (2*mShadowRadius + 1.5), frame.size.height - mYPeak - mPeakHeight - mShadowRadius - mShadowRadius - 1.5)];
+        containerView.layer.cornerRadius = mCornerRadius;
         containerView.clipsToBounds = YES;
         
         [self addSubview:containerView];
@@ -104,7 +104,7 @@
     [[UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0] setFill];   // light grey inner fill
     
     // Adjust the drawing options as needed.
-    self.outerPath.lineWidth = 0.5;
+    self.outerPath.lineWidth = 1;//0.5;
     
     // If you have content to draw after the shape,
     // save the current state before changing the transform
@@ -121,15 +121,15 @@
     
     [[UIColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:0.9] setStroke]; // white highlight inner stroke
 
-    rect = CGRectInset(self.bounds, 6.5, 6.5);
+    rect = CGRectInset(self.bounds, 6, 6);
 
     CGContextTranslateCTM(aRef, rect.origin.x - 5, rect.origin.y - 5);
     rect.origin = CGPointZero;
     if (nil == self.innerPath) {
-        self.innerPath = [self bezierPathWithRect:rect xPeak:mXPeak - 1.5 yPeak:mYPeak + 1 peakWidth:mPeakWidth - 2 andPeakHeight:mPeakHeight - 1];
+        self.innerPath = [self bezierPathWithRect:rect xPeak:mXPeak - 1 yPeak:mYPeak + 0.5 peakWidth:mPeakWidth - 1 andPeakHeight:mPeakHeight - 1];
     }
-    
-    [self.innerPath fill];
+    self.innerPath.lineWidth = 1;
+//    [self.innerPath fill];
     [self.innerPath stroke];
     
 }
