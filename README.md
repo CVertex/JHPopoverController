@@ -1,4 +1,5 @@
-**JHPopoverController**
+JHPopoverController
+-------------------
 
 - Author: Jon Hocking http://jonhocking.co.uk
 - Email: hello@jonhocking.co.uk
@@ -15,14 +16,27 @@ The controller interface works in a similar way to the default UIPopoverControll
 **You should use the controller interface instead of accessing the popover view directly.** 
 
 
-**Basic Features & Road Map**
+Basic Features & Road Map
+---------------------------
  
 - can only present from the top so far (hopefully this will be changed in future releases)
 - works best with fixed content but will automatically scroll if the viewcontroller's view is larger than the content size
 - automatically dismisses the popover on rotation of device so avoid the presentation being 'off'. (Hopefully I can fix this in future releases as well).
 - would like to add a nice way to customise the colours through the controller interface
 
-**MIT Licence**
+
+To Use
+------
+
+The two classes you'll need are in the *JHPopoverViewController* sub folder in the Xcode project. 
+
+Once you've included these in your project, use the view by init'ing the controller object and giving it a view controller to present.
+
+
+
+MIT Licence
+-----------
+
 Copyright (C) 2011 Jon Hocking
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
