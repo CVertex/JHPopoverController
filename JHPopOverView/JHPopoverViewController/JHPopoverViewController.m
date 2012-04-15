@@ -50,7 +50,7 @@
     
     // do some boundary checking for sides here
     
-    CGRect convertedRect = rect;    //[view convertRect:rect toView:view];
+    CGRect convertedRect = rect;
     CGFloat xPeak = kRectBuffer + self.contentSize.width/2;
     CGFloat xOrigin = -kRectBuffer;
     if (rect.origin.x - (self.contentSize.width/2 - kRectBuffer - kPopoverRadius) < 0 ){
@@ -58,7 +58,11 @@
         xOrigin = 0;
     }
     else if (rect.origin.x + (self.contentSize.width/2 + kRectBuffer + kPopoverRadius) > view.bounds.size.width ){
-        xPeak += (rect.origin.x + (self.contentSize.width/2 + kRectBuffer + kPopoverRadius)) - view.bounds.size.width;
+        
+        CGFloat rightBuffer = view.bounds.size.width - (rect.origin.x + rect.size.width/2);
+        CGFloat tmpX = rightBuffer - kRectBuffer;
+        
+        xPeak = roundf(self.contentSize.width - tmpX);
         xOrigin = 0;
     }
     
