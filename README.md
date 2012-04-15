@@ -13,7 +13,14 @@ A custom styled UIPopoverController replacement, drawn entirely with core graphi
 
 **This project is in no way associated with Instapaper** but was inspired by this shot on Dribbble https://twitter.com/jon_hocking/status/187187697763360768
 
-The instapaper screen shots are used as an example to compare with
+The instapaper screen shots are used as a comparison with the design.
+
+![Popover shown presented](http://f.cl.ly/items/0g2o1x3S3M0X2j2J0Q3f/JHPopover_1.png)
+
+More screen shots found here:
+http://cl.ly/Fr2p
+http://cl.ly/FrPb
+http://cl.ly/FrUd
 
 The controller interface works in a similar way to the default UIPopoverController. There are currently a few missing features to be added in the next set of releases.
  
