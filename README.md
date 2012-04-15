@@ -15,6 +15,7 @@ The controller interface works in a similar way to the default UIPopoverControll
  
 **You should use the controller interface instead of accessing the popover view directly.** 
 
+<br />
 
 Basic Features & Road Map
 ---------------------------
@@ -24,6 +25,7 @@ Basic Features & Road Map
 - automatically dismisses the popover on rotation of device so avoid the presentation being 'off'. (Hopefully I can fix this in future releases as well).
 - would like to add a nice way to customise the colours through the controller interface
 
+<br />
 
 To Use
 ------
@@ -32,7 +34,7 @@ The two classes you'll need are in the *JHPopoverViewController* sub folder in t
 
 Once you've included these in your project, use the view by init'ing the controller object and giving it a view controller to present.
 
-
+<br />
 
 MIT Licence
 -----------
