@@ -22,6 +22,14 @@
     
 }
 
+@property (strong, nonatomic) UIColor *outerStrokeColour;
+@property (strong, nonatomic) UIColor *innerStrokeColour;
+@property (strong, nonatomic) UIColor *fillColour;
+@property (strong, nonatomic) UIColor *shadowColour;
+
+// I recommend minor tweaks in the implementation of the view
+// try to keep it to colour changes only
+
 - (void)setContentView:(UIView*)contentView;
 - (id)initWithFrame:(CGRect)frame andXPeak:(CGFloat)xPeak;
 @end

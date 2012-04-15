@@ -131,7 +131,7 @@
 
 #pragma mark - Tap Methods
 
-// delegate methods
+// gesture delegate methods
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
     if (gestureRecognizer != self.tapOutsideGestureRecognizer) {
@@ -148,6 +148,7 @@
     return YES;
 }
 
+// business end
 
 - (void)handleOutsideTap:(UITapGestureRecognizer*)tapGesture{
     [self dismissPopoverAnimated:YES];

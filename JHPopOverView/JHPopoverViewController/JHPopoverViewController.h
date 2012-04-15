@@ -14,4 +14,5 @@
 
 - (void)presentPopoverFromRect:(CGRect)rect inView:(UIView *)view animated:(BOOL)animated;
 - (void)dismissPopoverAnimated:(BOOL)animated;
+
 @end
