@@ -109,7 +109,7 @@
     // If you have content to draw after the shape,
     // save the current state before changing the transform
     CGContextSaveGState(aRef);
-    CGContextSetShadowWithColor(aRef, CGSizeMake(0, 0), mShadowRadius, [UIColor colorWithWhite:0 alpha:0.3].CGColor);
+    CGContextSetShadowWithColor(aRef, CGSizeMake(0, 0), mShadowRadius, [UIColor colorWithWhite:0 alpha:0.35].CGColor);
     // Fill the path before stroking it so that the fill
     // color does not obscure the stroked line.
     [self.outerPath fill];
@@ -126,10 +126,10 @@
     CGContextTranslateCTM(aRef, rect.origin.x - 5, rect.origin.y - 5);
     rect.origin = CGPointZero;
     if (nil == self.innerPath) {
-        self.innerPath = [self bezierPathWithRect:rect xPeak:mXPeak - 1 yPeak:mYPeak + 0.5 peakWidth:mPeakWidth - 1 andPeakHeight:mPeakHeight - 1];
+        self.innerPath = [self bezierPathWithRect:rect xPeak:mXPeak - 1 yPeak:mYPeak + 0.5 peakWidth:mPeakWidth - 1 andPeakHeight:mPeakHeight - 0.5];
     }
     self.innerPath.lineWidth = 1;
-//    [self.innerPath fill];
+    [self.innerPath fill];
     [self.innerPath stroke];
     
 }
