@@ -79,7 +79,7 @@
     if (animated) {
         self.popoverView.alpha = 0;
         [view addSubview:self.popoverView];
-        [UIView animateWithDuration: 0.2 delay: 0
+        [UIView animateWithDuration: 0.15 delay: 0
                             options: UIViewAnimationOptionCurveEaseInOut |
                                      UIViewAnimationOptionBeginFromCurrentState 
                          animations:^{
@@ -100,7 +100,7 @@
 - (void)dismissPopoverAnimated:(BOOL)animated{
     
     if (animated) {
-        [UIView animateWithDuration: 0.2 delay: 0
+        [UIView animateWithDuration: 0.15 delay: 0
                             options: UIViewAnimationOptionCurveEaseInOut |
                                      UIViewAnimationOptionBeginFromCurrentState 
                          animations:^{
