@@ -11,7 +11,9 @@ JHPopoverController
 
 A custom styled UIPopoverController replacement, drawn entirely with core graphics to keep it fast and flexible.
 
-Inspired by https://twitter.com/jon_hocking/status/187187697763360768
+**This project is in no way associated with Instapaper** but was inspired by this shot on Dribbble https://twitter.com/jon_hocking/status/187187697763360768
+
+The instapaper screen shots are used as an example to compare with
 
 The controller interface works in a similar way to the default UIPopoverController. There are currently a few missing features to be added in the next set of releases.
  
@@ -21,7 +23,9 @@ The controller interface works in a similar way to the default UIPopoverControll
 
 Basic Features & Road Map
 ---------------------------
- 
+
+- ARC enabled
+- smart calculation for point when near view bounds
 - can only present from the top so far (hopefully this will be changed in future releases)
 - works best with fixed content but will automatically scroll if the viewcontroller's view is larger than the content size
 - automatically dismisses the popover on rotation of device so avoid the presentation being 'off'. (Hopefully I can fix this in future releases as well).
