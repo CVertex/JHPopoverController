@@ -10,7 +10,7 @@
 @class JHPopoverViewController;
 
 @interface JHViewController : UIViewController
-
+@property (strong, nonatomic) IBOutlet UIImageView *bgImage;
 @property (strong, nonatomic) JHPopoverViewController *popoverController;
 
 - (IBAction)buttonPressed:(id)sender;

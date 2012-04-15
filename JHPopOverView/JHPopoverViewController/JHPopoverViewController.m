@@ -11,6 +11,7 @@
 
 #define kRectBuffer 7
 #define kPopoverRadius 6
+#define kPaddingSize 10
 
 @interface JHPopoverViewController ()
 
@@ -53,13 +54,13 @@
     CGRect convertedRect = rect;
     CGFloat xPeak = kRectBuffer + self.contentSize.width/2;
     CGFloat xOrigin = -kRectBuffer;
-    if (rect.origin.x - (self.contentSize.width/2 - kRectBuffer - kPopoverRadius) < 0 ){
-        xPeak += rect.origin.x - (self.contentSize.width/2 - kPopoverRadius);
+    if (rect.origin.x - (self.contentSize.width/2 - kRectBuffer - kPopoverRadius) - kPaddingSize < 0 ){
+        xPeak += rect.origin.x - (self.contentSize.width/2 - kPopoverRadius) - kPaddingSize;
         xOrigin = 0;
     }
-    else if (rect.origin.x + (self.contentSize.width/2 + kRectBuffer + kPopoverRadius) > view.bounds.size.width ){
+    else if (rect.origin.x + (self.contentSize.width/2 + kRectBuffer + kPopoverRadius) + kPaddingSize > view.bounds.size.width ){
         
-        CGFloat rightBuffer = view.bounds.size.width - (rect.origin.x + rect.size.width/2);
+        CGFloat rightBuffer = view.bounds.size.width - ((rect.origin.x + rect.size.width/2) + kPaddingSize);
         CGFloat tmpX = rightBuffer - kRectBuffer;
         
         xPeak = roundf(self.contentSize.width - tmpX);
@@ -72,7 +73,7 @@
     
     popOverFrame.origin.y += convertedRect.origin.y + convertedRect.size.height;
     
-    popOverFrame.origin.x = (convertedRect.origin.x + convertedRect.size.width/2) - xPeak - kRectBuffer;
+    popOverFrame.origin.x += (convertedRect.origin.x + convertedRect.size.width/2) - xPeak - kRectBuffer;
     
     
     self.popoverView.frame = popOverFrame;
@@ -137,7 +138,6 @@
         return YES;
     }
     CGPoint touchPoint = [gestureRecognizer locationInView:self.popoverView.superview];
-    NSLog(@"%@", self.popoverView);
     if (CGRectContainsPoint(self.popoverView.frame, touchPoint)) {
         return NO;
     }

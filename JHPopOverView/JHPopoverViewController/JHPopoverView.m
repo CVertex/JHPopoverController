@@ -34,7 +34,7 @@
         mPeakWidth = 34;
         mPeakHeight = 18;
         mXPeak = xPeak;
-        mCornerRadius = 6;
+        mCornerRadius = 4;
         mShadowRadius = 6;
         
         UIView *containerView = [[UIView alloc]initWithFrame:CGRectMake(mShadowRadius + 1, mYPeak + mPeakHeight + mShadowRadius + 0.5, frame.size.width - (2*mShadowRadius + 1.5), frame.size.height - mYPeak - mPeakHeight - mShadowRadius - mShadowRadius - 1.5)];
@@ -109,7 +109,7 @@
     // If you have content to draw after the shape,
     // save the current state before changing the transform
     CGContextSaveGState(aRef);
-    CGContextSetShadowWithColor(aRef, CGSizeMake(0, 0), mShadowRadius, [UIColor colorWithWhite:0 alpha:0.2].CGColor);
+    CGContextSetShadowWithColor(aRef, CGSizeMake(0, 0), mShadowRadius, [UIColor colorWithWhite:0 alpha:0.3].CGColor);
     // Fill the path before stroking it so that the fill
     // color does not obscure the stroked line.
     [self.outerPath fill];
