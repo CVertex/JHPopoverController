@@ -7,6 +7,8 @@ JHPopoverController
 - License: MIT (Below)
 - Support: http://stackoverflow.com
 
+<br />
+
 A custom styled UIPopoverController replacement, drawn entirely with core graphics to keep it fast and flexible.
 
 Inspired by https://twitter.com/jon_hocking/status/187187697763360768
