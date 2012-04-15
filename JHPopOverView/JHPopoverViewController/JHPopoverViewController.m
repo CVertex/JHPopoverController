@@ -10,7 +10,7 @@
 #import "JHPopoverView.h"
 
 #define kRectBuffer 7
-#define kPopoverRadius 6
+#define kPopoverRadius 4
 #define kPaddingSize 10
 
 @interface JHPopoverViewController ()
