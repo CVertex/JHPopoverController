@@ -16,13 +16,14 @@ This project was inspired by this shot on Dribbble https://twitter.com/jon_hocki
 ![Popover shown presented](http://f.cl.ly/items/1F083N1D1I2k0g3b2z1D/JHPopover_1.png)
 
 More screen shots found here:
+
 - http://cl.ly/FrTs
 - http://cl.ly/Fs1N
 - http://cl.ly/FrpF
 
 The controller interface works in a similar way to the default UIPopoverController. There are currently a few missing features to be added in the next set of releases.
  
-**You should use the controller interface instead of accessing the popover view directly.** 
+ 
 
 <br />
 
@@ -45,6 +46,8 @@ To Use
 The two classes you'll need are in the *JHPopoverViewController* sub folder in the Xcode project. 
 
 Once you've included these in your project, use the view by init'ing the controller object and giving it a view controller to present.
+
+**You should use the controller interface instead of accessing the popover view directly.**
 
 <br />
 
