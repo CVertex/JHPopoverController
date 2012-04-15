@@ -17,6 +17,9 @@
 @property (strong, nonatomic) UIViewController *viewController;
 @property (nonatomic) CGSize contentSize;
 @property (strong, nonatomic) JHPopoverView *popoverView;
+
+- (void)didRotate:(NSNotification*)notification;
+
 @end
 
 @implementation JHPopoverViewController
@@ -29,6 +32,7 @@
     if (self) {
         self.viewController = viewController;
         self.contentSize = size;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didRotate:) name:@"UIDeviceOrientationDidChangeNotification" object:nil];
     }
     
     return self;
@@ -63,7 +67,51 @@
     
     [self.popoverView setContentView:self.viewController.view];
     
-    [view addSubview:self.popoverView];
+    
+    if (animated) {
+        self.popoverView.alpha = 0;
+        [view addSubview:self.popoverView];
+        [UIView animateWithDuration: 0.2 delay: 0
+                            options: UIViewAnimationOptionCurveEaseInOut |
+                                     UIViewAnimationOptionBeginFromCurrentState 
+                         animations:^{
+                             
+                             self.popoverView.alpha = 1;
+                             
+                         } completion:^(BOOL finished) {
+                             [self.popoverView removeFromSuperview];
+                         }];
+    }else{
+        [view addSubview:self.popoverView];
+    }
+}
+
+- (void)dismissPopoverAnimated:(BOOL)animated{
+    
+    if (animated) {
+        [UIView animateWithDuration: 0.2 delay: 0
+                            options: UIViewAnimationOptionCurveEaseInOut |
+                                     UIViewAnimationOptionBeginFromCurrentState 
+                         animations:^{
+                                
+                             self.popoverView.alpha = 0;
+                                
+                            } completion:^(BOOL finished) {
+                                [self.popoverView removeFromSuperview];
+                            }];
+    }else{
+        [self.popoverView removeFromSuperview];
+        self.popoverView = nil;
+    }
+    
+}
+
+- (void)didRotate:(NSNotification*)notification{
+    [self dismissPopoverAnimated:YES];
+}
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter]removeObserver:self forKeyPath:@"UIDeviceOrientationDidChangeNotification"];
 }
 
 @end

@@ -13,5 +13,5 @@
 - (id)initWithViewController:(UIViewController*)viewController andContentSize:(CGSize)size;
 
 - (void)presentPopoverFromRect:(CGRect)rect inView:(UIView *)view animated:(BOOL)animated;
-
+- (void)dismissPopoverAnimated:(BOOL)animated;
 @end
