@@ -17,8 +17,11 @@
 @property (strong, nonatomic) UIViewController *viewController;
 @property (nonatomic) CGSize contentSize;
 @property (strong, nonatomic) JHPopoverView *popoverView;
+@property (strong, nonatomic) UITapGestureRecognizer *tapOutsideGestureRecognizer;
+
 
 - (void)didRotate:(NSNotification*)notification;
+- (void)handleOutsideTap:(UITapGestureRecognizer*)tapGesture;
 
 @end
 
@@ -26,13 +29,18 @@
 @synthesize viewController = mViewController;
 @synthesize contentSize = mContentSize;
 @synthesize popoverView = mPopoverView;
+@synthesize tapOutsideGestureRecognizer = mTapOutsideGestureRecognizer;
 
 - (id)initWithViewController:(UIViewController*)viewController andContentSize:(CGSize)size{
     self = [super init];
     if (self) {
         self.viewController = viewController;
         self.contentSize = size;
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didRotate:) name:@"UIDeviceOrientationDidChangeNotification" object:nil];
+        UIDevice *device = [UIDevice currentDevice];
+        [device beginGeneratingDeviceOrientationNotifications];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didRotate:) name:UIDeviceOrientationDidChangeNotification object:nil];
+        self.tapOutsideGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handleOutsideTap:)];
+        self.tapOutsideGestureRecognizer.delegate = self;
     }
     
     return self;
@@ -66,7 +74,7 @@
     self.popoverView.frame = popOverFrame;
     
     [self.popoverView setContentView:self.viewController.view];
-    
+
     
     if (animated) {
         self.popoverView.alpha = 0;
@@ -79,11 +87,14 @@
                              self.popoverView.alpha = 1;
                              
                          } completion:^(BOOL finished) {
-                             [self.popoverView removeFromSuperview];
+                             
                          }];
     }else{
         [view addSubview:self.popoverView];
     }
+    
+    [view addGestureRecognizer:self.tapOutsideGestureRecognizer];
+
 }
 
 - (void)dismissPopoverAnimated:(BOOL)animated{
@@ -97,9 +108,12 @@
                              self.popoverView.alpha = 0;
                                 
                             } completion:^(BOOL finished) {
+                                [self.popoverView.superview removeGestureRecognizer:self.tapOutsideGestureRecognizer];
                                 [self.popoverView removeFromSuperview];
+                                self.popoverView = nil;
                             }];
     }else{
+        [self.popoverView.superview removeGestureRecognizer:self.tapOutsideGestureRecognizer];
         [self.popoverView removeFromSuperview];
         self.popoverView = nil;
     }
@@ -107,11 +121,39 @@
 }
 
 - (void)didRotate:(NSNotification*)notification{
+    [self dismissPopoverAnimated:NO];
+}
+
+#pragma mark - Tap Methods
+
+// delegate methods
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
+    return YES;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
+    return YES;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
+    if (gestureRecognizer != self.tapOutsideGestureRecognizer) {
+        return YES;
+    }
+    CGPoint touchPoint = [gestureRecognizer locationInView:self.popoverView.superview];
+    if (CGRectContainsPoint(self.popoverView.frame, touchPoint)) {
+        return NO;
+    }
+    else return YES;
+}
+
+- (void)handleOutsideTap:(UITapGestureRecognizer*)tapGesture{
     [self dismissPopoverAnimated:YES];
 }
 
+
 - (void)dealloc{
-    [[NSNotificationCenter defaultCenter]removeObserver:self forKeyPath:@"UIDeviceOrientationDidChangeNotification"];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 
 @end

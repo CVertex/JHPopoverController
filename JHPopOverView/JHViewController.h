@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class JHPopoverViewController;
 
 @interface JHViewController : UIViewController
+
+@property (strong, nonatomic) JHPopoverViewController *popoverController;
 
 - (IBAction)buttonPressed:(id)sender;
 

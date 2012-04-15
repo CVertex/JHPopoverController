@@ -11,6 +11,7 @@
 #import "JHPopoverViewController.h"
 #import "ViewController.h"
 @implementation JHViewController
+@synthesize popoverController;
 
 - (void)didReceiveMemoryWarning
 {
@@ -60,9 +61,9 @@
 - (IBAction)buttonPressed:(id)sender{
     
     ViewController *vc = [[ViewController alloc]initWithNibName:@"ViewController" bundle:nil];
-    
-    JHPopoverViewController *popOverViewController = [[JHPopoverViewController alloc]initWithViewController:vc andContentSize:vc.view.frame.size];
-    [popOverViewController presentPopoverFromRect:[(UIButton*)sender frame] inView:self.view animated:YES];
+    self.popoverController = nil;
+    self.popoverController = [[JHPopoverViewController alloc]initWithViewController:vc andContentSize:vc.view.frame.size];
+    [self.popoverController presentPopoverFromRect:[(UIButton*)sender frame] inView:self.view animated:YES];
 }
 
 

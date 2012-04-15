@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JHPopoverViewController : NSObject
+@interface JHPopoverViewController : NSObject <UIGestureRecognizerDelegate>
 
 - (id)initWithViewController:(UIViewController*)viewController andContentSize:(CGSize)size;
 
