@@ -133,23 +133,21 @@
 // delegate methods
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
-    return YES;
+    if (gestureRecognizer != self.tapOutsideGestureRecognizer) {
+        return YES;
+    }
+    CGPoint touchPoint = [gestureRecognizer locationInView:self.popoverView.superview];
+    NSLog(@"%@", self.popoverView);
+    if (CGRectContainsPoint(self.popoverView.frame, touchPoint)) {
+        return NO;
+    }
+    else return YES;
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
     return YES;
 }
 
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
-    if (gestureRecognizer != self.tapOutsideGestureRecognizer) {
-        return YES;
-    }
-    CGPoint touchPoint = [gestureRecognizer locationInView:self.popoverView.superview];
-    if (CGRectContainsPoint(self.popoverView.frame, touchPoint)) {
-        return NO;
-    }
-    else return YES;
-}
 
 - (void)handleOutsideTap:(UITapGestureRecognizer*)tapGesture{
     [self dismissPopoverAnimated:YES];
