@@ -7,12 +7,10 @@
 //
 
 #import "JHViewController.h"
-#import "JHPopoverView.h"
 #import "JHPopoverViewController.h"
 #import "ViewController.h"
 @implementation JHViewController
 @synthesize popoverController;
-@synthesize bgImage;
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -25,9 +23,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-//    JHPopoverView *jhPopOverView = [[JHPopoverView alloc]initWithFrame:CGRectMake(40, 40, 300, 400)];
-//    [self.view addSubview:jhPopOverView];
-    
 }
 
 - (void)viewDidUnload
@@ -35,9 +30,6 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
-    
-    
-
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -77,27 +69,8 @@
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
     } else {
-        
-        if (UIDeviceOrientationIsLandscape(interfaceOrientation)) {
-            [bgImage setHighlighted:YES];
-        }
-        else {
-            [bgImage setHighlighted:NO];
-        }
-        
-        
         return YES;
     }
 }
-
-//- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
-//    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) {
-//        [bgImage setHighlighted:YES];
-//    }
-//    else {
-//        [bgImage setHighlighted:NO];
-//    }
-//}
-
 
 @end

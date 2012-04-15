@@ -11,8 +11,6 @@
 		9480D15C1537755800FDE553 /* JHPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9480D15A1537755800FDE553 /* JHPopoverViewController.m */; };
 		9480D16015377CBE00FDE553 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9480D15E15377CBE00FDE553 /* ViewController.m */; };
 		9480D16115377CBE00FDE553 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9480D15F15377CBE00FDE553 /* ViewController.xib */; };
-		94D09D6B153B3DEE0026BAD5 /* landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D09D69153B3DEE0026BAD5 /* landscape.png */; };
-		94D09D6C153B3DEE0026BAD5 /* portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D09D6A153B3DEE0026BAD5 /* portrait.png */; };
 		94FD4737152BAC3C00A916AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94FD4736152BAC3C00A916AD /* UIKit.framework */; };
 		94FD4739152BAC3C00A916AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94FD4738152BAC3C00A916AD /* Foundation.framework */; };
 		94FD473B152BAC3C00A916AD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94FD473A152BAC3C00A916AD /* CoreGraphics.framework */; };
@@ -32,8 +30,6 @@
 		9480D15D15377CBE00FDE553 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		9480D15E15377CBE00FDE553 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		9480D15F15377CBE00FDE553 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
-		94D09D69153B3DEE0026BAD5 /* landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = landscape.png; sourceTree = "<group>"; };
-		94D09D6A153B3DEE0026BAD5 /* portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = portrait.png; sourceTree = "<group>"; };
 		94FD4732152BAC3C00A916AD /* JHPopOverView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JHPopOverView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94FD4736152BAC3C00A916AD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		94FD4738152BAC3C00A916AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -105,8 +101,6 @@
 		94FD473C152BAC3C00A916AD /* JHPopOverView */ = {
 			isa = PBXGroup;
 			children = (
-				94D09D69153B3DEE0026BAD5 /* landscape.png */,
-				94D09D6A153B3DEE0026BAD5 /* portrait.png */,
 				94FD4745152BAC3D00A916AD /* JHAppDelegate.h */,
 				94FD4746152BAC3D00A916AD /* JHAppDelegate.m */,
 				94FD4748152BAC3D00A916AD /* JHViewController.h */,
@@ -188,8 +182,6 @@
 				94FD474D152BAC3D00A916AD /* JHViewController_iPhone.xib in Resources */,
 				94FD4750152BAC3D00A916AD /* JHViewController_iPad.xib in Resources */,
 				9480D16115377CBE00FDE553 /* ViewController.xib in Resources */,
-				94D09D6B153B3DEE0026BAD5 /* landscape.png in Resources */,
-				94D09D6C153B3DEE0026BAD5 /* portrait.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
