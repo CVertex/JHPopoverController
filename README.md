@@ -2,7 +2,6 @@ JHPopoverController
 -------------------
 
 - Author: Jon Hocking http://jonhocking.co.uk
-- Email: hello@jonhocking.co.uk
 - Code URL: https://github.com/jonhocking/JHPopoverController
 - License: MIT (Below)
 - Support: http://stackoverflow.com
@@ -43,7 +42,7 @@ Basic Features & Road Map
 To Use
 ------
 
-The two classes you'll need are in the *JHPopoverViewController* sub folder in the Xcode project. 
+The two classes you'll need are in the *JHPopoverViewController* sub folder in the Xcode project. (JHPopoverView and JHPopoverViewController)
 
 Once you've included these in your project, use the view by init'ing the controller object and giving it a view controller to present.
 
