@@ -13,7 +13,10 @@
 #define kPopoverRadius 4
 #define kPaddingSize 10
 
-@interface JHPopoverViewController ()
+@interface JHPopoverViewController (){
+    BOOL isLandscape;
+}
+
 
 @property (strong, nonatomic) UIViewController *viewController;
 @property (nonatomic) CGSize contentSize;
@@ -99,7 +102,7 @@
     }
     
     [view addGestureRecognizer:self.tapOutsideGestureRecognizer];
-
+    isLandscape = UIDeviceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation);
 }
 
 - (void)dismissPopoverAnimated:(BOOL)animated{
@@ -125,8 +128,18 @@
     
 }
 
+
 - (void)didRotate:(NSNotification*)notification{
-    [self dismissPopoverAnimated:NO];
+    
+    
+    
+    if(isLandscape != UIDeviceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)){
+        NSLog(@"%d", [UIApplication sharedApplication].statusBarOrientation);
+        [self dismissPopoverAnimated:NO];
+        isLandscape = UIDeviceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation); 
+        
+    }
+
 }
 
 #pragma mark - Tap Methods
