@@ -30,12 +30,12 @@ Basic Features & Road Map
 ---------------------------
 
 - ARC enabled
+- Custom colours
 - Retina ready drawing
 - smart calculation for point when near view bounds
 - can only present from the top so far (hopefully this will be changed in future releases)
 - works best with fixed content but will automatically scroll if the viewcontroller's view is larger than the content size
-- automatically dismisses the popover on rotation of device so avoid the presentation being 'off'. (Hopefully I can fix this in future releases as well).
-- would like to add a nice way to customise the colours through the controller interface
+- automatically dismisses the popover on rotation of device
 
 <br />
 
@@ -47,6 +47,22 @@ The two classes you'll need are in the *JHPopoverViewController* sub folder in t
 Once you've included these in your project, use the view by init'ing the controller object and giving it a view controller to present.
 
 **You should use the controller interface instead of accessing the popover view directly.**
+
+Custom Colours
+--------------
+
+To customise the colours of the popover, you can either set them individully or by setting a dictionary.
+
+In order to set the correct colours you should call - (void) setColor:(UIColor*)color forKey:(NSString*)key on your JHPopoverViewController instance. Or you can call the equivilant dictionary method.
+
+The keys used are predefined in the JHPopoverViewController header. These are:
+
+- JHPopoverViewInnerStrokeColorKey
+- JHPopoverViewOuterStrokeColorKey
+- JHPopoverViewFillColorKey
+- JHPopoverViewShadowColorKey
+
+The popover will not respond to any other keys.
 
 <br />
 
