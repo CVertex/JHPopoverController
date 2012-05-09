@@ -145,4 +145,8 @@
     [self.scrollView addSubview:contentView];
 }
 
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key{
+    NSLog(@"Error: Attempted to set unrecognized key: %@ on a JHPopoverViewController - not cool man, not cool", key);
+}
+
 @end

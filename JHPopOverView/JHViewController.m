@@ -59,6 +59,19 @@
     self.popoverController = nil;
     self.popoverController = [[JHPopoverViewController alloc]initWithViewController:vc andContentSize:vc.view.frame.size];
     [self.popoverController presentPopoverFromRect:[(UIButton*)sender frame] inView:self.view animated:YES];
+    
+    /*
+    // colour customisation with a single colour
+    [self.popoverController setColor:[UIColor colorWithRed:1.0 green:0.5 blue:0.3 alpha:1.0] forKey:JHPopoverViewFillColorKey];
+    
+    // colour customisation with a dictionary
+    
+    NSArray *objects = [NSArray arrayWithObjects:[UIColor colorWithRed:1.0 green:0.5 blue:0.3 alpha:1.0],[UIColor colorWithRed:1.0 green:0.5 blue:0.3 alpha:1.0],[UIColor colorWithRed:1.0 green:0.5 blue:0.3 alpha:1.0],[UIColor colorWithRed:1.0 green:0.5 blue:0.3 alpha:1.0], nil];
+    NSArray *keys = [NSArray arrayWithObjects:JHPopoverViewFillColorKey, JHPopoverViewInnerStrokeColorKey, JHPopoverViewOuterStrokeColorKey, JHPopoverViewShadowColorKey, nil];
+    
+    NSDictionary *dict = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+    [self.popoverController setColorsDictionary:dict];
+     */
 }
 
 

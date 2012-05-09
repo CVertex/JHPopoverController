@@ -22,7 +22,7 @@
 @property (nonatomic) CGSize contentSize;
 @property (strong, nonatomic) JHPopoverView *popoverView;
 @property (strong, nonatomic) UITapGestureRecognizer *tapOutsideGestureRecognizer;
-
+@property (strong, nonatomic) NSMutableDictionary *colorsDictionary;
 
 - (void)didRotate:(NSNotification*)notification;
 - (void)handleOutsideTap:(UITapGestureRecognizer*)tapGesture;
@@ -34,6 +34,7 @@
 @synthesize contentSize = mContentSize;
 @synthesize popoverView = mPopoverView;
 @synthesize tapOutsideGestureRecognizer = mTapOutsideGestureRecognizer;
+@synthesize colorsDictionary = _colorsDictionary;
 
 - (id)initWithViewController:(UIViewController*)viewController andContentSize:(CGSize)size{
     self = [super init];
@@ -45,6 +46,7 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didRotate:) name:UIDeviceOrientationDidChangeNotification object:nil];
         self.tapOutsideGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handleOutsideTap:)];
         self.tapOutsideGestureRecognizer.delegate = self;
+        self.colorsDictionary = [[NSMutableDictionary alloc]initWithCapacity:4];
     }
     
     return self;
@@ -82,7 +84,7 @@
     self.popoverView.frame = popOverFrame;
     
     [self.popoverView setContentView:self.viewController.view];
-
+    [self.popoverView setValuesForKeysWithDictionary:_colorsDictionary];
     
     if (animated) {
         self.popoverView.alpha = 0;
@@ -103,6 +105,7 @@
     
     [view addGestureRecognizer:self.tapOutsideGestureRecognizer];
     isLandscape = UIDeviceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation);
+    
 }
 
 - (void)dismissPopoverAnimated:(BOOL)animated{
@@ -131,15 +134,12 @@
 
 - (void)didRotate:(NSNotification*)notification{
     
-    
-    
     if(isLandscape != UIDeviceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)){
-        NSLog(@"%d", [UIApplication sharedApplication].statusBarOrientation);
         [self dismissPopoverAnimated:NO];
         isLandscape = UIDeviceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation); 
         
     }
-
+    
 }
 
 #pragma mark - Tap Methods
@@ -167,6 +167,24 @@
     [self dismissPopoverAnimated:YES];
 }
 
+#pragma mark Colour Customisation
+
+
+- (void)setColor:(UIColor*)color forKey:(NSString*)key{
+    if (color && key && [key length] > 0) {
+        [self.popoverView setValue:color forKey:key];
+        [self.colorsDictionary setObject:color forKey:key];
+        [mPopoverView setNeedsDisplay];
+    }
+}
+
+- (void)setColorsDictionary:(NSDictionary*)colorsDictionary{
+    _colorsDictionary = [NSMutableDictionary dictionaryWithDictionary: colorsDictionary];
+    if (self.popoverView) {
+        [self.popoverView setValuesForKeysWithDictionary:_colorsDictionary];
+        [self.popoverView setNeedsDisplay];
+    }
+}
 
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter]removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
